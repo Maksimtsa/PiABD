@@ -216,7 +216,7 @@ GROUP BY gatunki.nazwa_zwyczajowa
 ORDER BY liczbnosc DESC 
 LIMIT 10 
 
-4) dla wszystkich profuktow w tabeli produkty wyzncza liczbe dostawcow kazdego produktu 
+4) dla wszystkich produktow w tabeli produkty wyzncza liczbe dostawcow kazdego produktu 
 
 SELECT produkty.NazwaProduktu, COUNT(dostawcy_produktow.IDDostawcy) 
 FROM produkty, dostawcy_produktow, dostawcy 
