@@ -98,10 +98,6 @@ WHERE (month(imprezy.DzienRozpoczecia) = 10 AND
        month(imprezy.DzienZakonczenia) = 10) AND  
        YEAR(imprezy.DzienZakonczenia) = 2017) 
 
- 
-
- 
-
 Zad 12 
 
 SELECT dostawcy.NazwaDostawcy 
@@ -109,7 +105,10 @@ FROM dostawcy
 WHERE dostawcy.MiastoDostawcy IN ("Ballard", "Bellevue", "Redmond") 
 ORDER BY dostawcy.NazwaDostawcy 
 
- 
+
+
+
+
 
 Group by  
 Count  
@@ -189,7 +188,7 @@ WHERE lokalizacje.powiat = "gdanski"
 GROUP BY gatunki.nazwa_zwyczajowa 
 
  
-
+08.10.2024
  
 
 1)SELECT SUM(imprezy.WartoscKontraktu), AVG(imprezy.WartoscKontraktu) 
@@ -223,6 +222,32 @@ FROM produkty, dostawcy_produktow, dostawcy
 WHERE dostawcy_produktow.IDDostawcy = dostawcy.IDDostawcy  
 AND produkty.NumerProduktu = dostawcy_produktow.NumerProduktu 
 GROUP BY NazwaProduktu; 
+
+15.10.2024
+1)wyświetl nazwę dostawcy
+SELECT dostawcy.NazwaDostawcy
+FROM dostawcy
+
+2)jakie sa produkty i ile kosztuja
+SELECT produkty.NazwaProduktu, produkty.CenaDetaliczna
+FROM produkty
+
+3)wskaż najdroższą książkę
+SELECT ksiazki.tytul, MAX(ksiazki.cena)
+FROM ksiazki
+
+4)podaj zamówienie założone ostatnio
+SELECT *
+FROM zamowienia
+GROUP BY zamowienia.data DESC
+
+5)
+SELECT	imprezy.WartoscKontraktu,
+		(imprezy.WartoscKontraktu * 0.15) as nasze_honorarium, 
+		(imprezy.WartoscKontraktu - imprezy.WartoscKontraktu * 0.15) as wartosc_netto
+FROM imprezy;
+
+6)
 
  
 
