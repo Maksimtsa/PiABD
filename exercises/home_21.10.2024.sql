@@ -17,3 +17,14 @@ SELECT *
 FROM zamowienia
 GROUP BY zamowienia.DataZamowienia DESC
 LIMIT 1;
+
+5)
+wyszukiwać klientów, którzy zamówili produkty z nazwą zaczynającą się na rękawice
+/*wyszukiwać klientów, którzy zamówili produkty z nazwą zaczynającą się na kask*/
+SELECT klienci.ImieKlienta, produkty.NazwaProduktu
+FROM klienci
+INNER JOIN zamowienia ON klienci.IDKlienta = zamowienia.IDKlienta
+INNER JOIN dane_zamowien ON zamowienia.NumerZamowienia = dane_zamowien.NumerZamowienia
+INNER JOIN produkty ON dane_zamowien.NumerProduktu = produkty.NumerProduktu
+WHERE produkty.NazwaProduktu LIKE "%kask";
+
