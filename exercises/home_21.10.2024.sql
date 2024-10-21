@@ -65,3 +65,13 @@ FROM produkty
 INNER JOIN dostawcy_produktow ON produkty.NumerProduktu = dostawcy_produktow.NumerProduktu
 INNER JOIN dostawcy ON dostawcy_produktow.IDDostawcy = dostawcy.IDDostawcy
 
+11)
+/*Pobierz wszystkie zamówienia złożone w danym miesiącu wraz z nazwą klienta i zamówionymi produktami.*/
+SELECT zamowienia.NumerZamowienia, klienci.ImieKlienta, klienci.NazwiskoKlienta, produkty.NazwaProduktu
+FROM zamowienia
+INNER JOIN klienci ON zamowienia.IDKlienta = klienci.IDKlienta
+INNER JOIN dane_zamowien ON zamowienia.NumerZamowienia = dane_zamowien.NumerZamowienia
+INNER JOIN produkty ON dane_zamowien.NumerProduktu = produkty.NumerProduktu
+WHERE MONTH(zamowienia.DataZamowienia) = 10
+
+
