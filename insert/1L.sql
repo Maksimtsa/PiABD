@@ -51,4 +51,24 @@ INSERT INTO klienci VALUES(NULL, "Agamemnon", "Listkowski", "Czarna Góra")
 DELETE FROM klienci
 WHERE klienci.idklienta > 10
 
---zad 13
+--26.11.2024
+
+--NOWY UZITKOWNIK
+CREATE USER Maksim IDENTIFIED BY "hasło"
+
+--usunięcie
+DROP USER "Matka"@"localhost"
+
+--update password
+SET PASSWORD = PASSWORD "Hasło zastępcze"
+  
+--wszystkie
+SELECT USER, host, PASSWORD FROM mysql.user;
+
+
+GRANT CREATE ON *,* To 'Maksim'@'localhost'
+GRANT UPDATE ON *.* To Maksim
+
+GRANT ALL PRIVILEGES on *.* TO Maksim
+
+--ROVOKE 
