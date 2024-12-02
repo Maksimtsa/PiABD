@@ -1,5 +1,3 @@
--- set
--- seting
 --zad 1
 UPDATE klienci SET klienci.nazwisko = "Psikuta"
 
