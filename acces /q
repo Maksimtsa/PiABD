@@ -1,1 +1,18 @@
+Option Compare Database
 
+Private Sub Polecenie0_Click()
+    Dim odp As Integer
+    Dim db As DAO.Database
+    Dim rst As DAO.Recordset
+    Set db = CurrentDb
+    Set rst = db.OpenRecordset("Klienci")
+    rst.MoveFirst
+    Do While Not rst.EOF
+        odp = MsgBox("nazwisko klienta: " & rst.Fields("NazwiskoKlienta") & vbCrLf & "Imie klienta : " & rst.Fields("ImieKlienta"), vbOKCancel, "JPRDL")
+        If odp = vbCancel Then
+            Exit Sub
+        End If
+            rst.MoveNext
+    Loop
+    
+End Sub
